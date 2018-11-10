@@ -1,0 +1,20 @@
+version: "2"
+services:
+  app:
+    build: .
+    image: tomazjr/java-todo-list:latest
+    environment:
+      - MONGO_URL=mongodb
+    ports:
+      - 8080:8080
+    links:
+      - mongodb
+    depends_on:
+      - mongodb
+    entrypoint: "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    command: mongod --smallfiles --logpath=/dev/null # --quiet
