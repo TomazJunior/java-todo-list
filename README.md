@@ -40,3 +40,7 @@ mvn spring-boot:run
 	"description": "description 2"
   }
   ```
+### TODO
+ - add swagger documentation
+ - add add task validation
+ - add update task feature
